@@ -5,7 +5,9 @@ fn main() {
 
     let mut config = gcc::Config::new();
     config.file("mdb/libraries/liblmdb/mdb.c")
-          .file("mdb/libraries/liblmdb/midl.c");
+          .file("mdb/libraries/liblmdb/midl.c")
+          .define("MDB_USE_ROBUST", "0");
+
     config.opt_level(2);
 
     if target.contains("dragonfly") {
